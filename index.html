@@ -111,6 +111,150 @@
         }
         }
 
+        .timeline-line {
+            background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+        }
+        
+        .experience-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border: 1px solid #475569;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+            border-color: #3b82f6;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(45deg, #1e40af, #3730a3);
+            transition: all 0.2s ease;
+        }
+        
+        .tech-tag:hover {
+            background: linear-gradient(45deg, #2563eb, #4338ca);
+            transform: scale(1.05);
+        }
+        
+        .section-header {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .achievement-bullet {
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        
+        .company-logo {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .duration-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        .pattern-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4); }
+        }
+        
+        .animate-shimmer {
+            animation: shimmer 2.5s infinite;
+        }
+        
+        .skill-fill {
+            animation: pulse-glow 3s infinite;
+        }
+        
+        .skill-line {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+        
+        .skill-line.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .success-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .skill-line {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                padding: 16px 12px;
+            }
+            
+            .skill-name {
+                min-width: auto;
+                text-align: center;
+            }
+            
+            .skill-bar {
+                margin: 0;
+                order: 2;
+            }
+            
+            .skill-percent {
+                text-align: center;
+                order: 3;
+            }
+        }
 
     </style>
 </head>
@@ -332,109 +476,165 @@
                 <p class="text-xl text-gray-300">Professional journey and academic achievements</p>
             </div>
             
-            <!-- Professional Experience -->
-            <div class="mb-20">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl font-bold text-white mb-4">Professional Experience</h3>
-                    <div class="w-24 h-1 bg-blue-400 mx-auto neon-glow"></div>
-                </div>
-                
-                <div class="relative">
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-500/30"></div>
-                    
-                    <!-- TCS Experience -->
-                    <div class="relative mb-12">
-                        <div class="flex items-center justify-center">
-                            <div class="bg-blue-400 w-4 h-4 rounded-full absolute left-1/2 transform -translate-x-1/2 neon-glow"></div>
-                        </div>
-                        <div class="grid lg:grid-cols-2 gap-8 items-center">
-                            <div class="lg:text-left lg:pr-8">
-                                <!-- <div class="card-3d"> -->
-                                    <div class="bg-gray-800 border border-blue-500/30 p-8 rounded-xl shadow-lg hover-lift neon-glow">
-                                        <!-- bg-gray-800 border border-blue-500/30 p-8 rounded-xl shadow-lg hover-lift neon-glow -->
-                                        <h4 class="text-2xl font-bold text-white mb-2">Data Scientist & Tableau Developer</h4>
-                                        <h5 class="text-lg text-blue-400 mb-4">Tata Consultancy Services Limited</h5>
-                                        <p class="text-gray-400 mb-4">Jul 2022 – Jul 2024 | Mumbai, India</p>
-                                        <ul class="text-gray-300 space-y-2 text-sm">
-                                            <li>• Enhanced NLP capabilities using SpaCy, improving text analysis accuracy for unstructured datasets.</li>
-                                            <li>• Developed and deployed ML & Generative AI models on AWS (SageMaker, EC2, EventBridge), including a prototype that reduced risk identification time by 60%.</li>
-                                            <li>• Designed optimized SQL queries and streamlined ETL pipelines in Snowflake with Python, accelerating data transformation and enabling near real-time reporting.</li>
-                                            <li>• Led BI migration POC (QlikView → Power BI) and built 20+ interactive Tableau dashboards, improving reporting speed, usability, and stakeholder visibility by 30%+.</li>
-                                            <li>• Transformed and automated large-scale data workflows, reducing insight access time by 50%.</li>
-                                            <li>• Implemented automated reporting & KPI frameworks, cutting manual effort by 40% and standardizing BI delivery for scalability.</li>
-                                            <li>• Optimized Tableau Server operations (publishing, permissions, performance tuning), boosting user experience by 25%.</li>
-                                            <li>• Authored comprehensive technical reports and data mapping documentation to ensure project sustainability and smooth team handovers.</li>
-                                        </ul>
-                                    </div>
-                                <!-- </div> -->
-                            </div>
-                            <div class="lg:pl-8">
-                                <div class="data-viz-bg border border-cyan-500/30 p-6 rounded-xl text-white neon-glow">
-                                    <h5 class="text-lg font-bold mb-4 text-cyan-400">Key Technologies</h5>
-                                    <div class="grid grid-cols-2 gap-3">
-                                        <span class="bg-green-500/20 border border-green-500/30 px-3 py-1 rounded text-sm text-green-300">Python</span>
-                                        <span class="bg-purple-500/20 border border-purple-500/30 px-3 py-1 rounded text-sm text-purple-300">SQL</span>
-                                        <span class="bg-blue-500/20 border border-blue-500/30 px-3 py-1 rounded text-sm text-blue-300">NLP</span>
-                                        <span class="bg-orange-500/20 border border-orange-500/30 px-3 py-1 rounded text-sm text-orange-300">ML</span>
-                                        <span class="bg-red-500/20 border border-red-500/30 px-3 py-1 rounded text-sm text-red-300">Tableau</span>
-                                        <span class="bg-green-500/20 border border-green-500/30 px-3 py-1 rounded text-sm text-green-300">Power BI</span>
-                                        <span class="bg-purple-500/20 border border-purple-500/30 px-3 py-1 rounded text-sm text-purple-300">Snowflake</span>
-                                        <span class="bg-blue-500/20 border border-blue-500/30 px-3 py-1 rounded text-sm text-blue-300">ETL</span>
-                                        <span class="bg-orange-500/20 border border-orange-500/30 px-3 py-1 rounded text-sm text-orange-300">AWS</span>
-                                        <span class="bg-red-500/20 border border-red-500/30 px-3 py-1 rounded text-sm text-red-300">MLOps</span>
-                                        <span class="bg-green-500/20 border border-green-500/30 px-3 py-1 rounded text-sm text-green-300">GenAI</span>
-                                        <span class="bg-purple-500/20 border border-purple-500/30 px-3 py-1 rounded text-sm text-purple-300">Git</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Experience Timeline -->
+        <div class="relative">
+            <!-- Timeline Line -->
+            <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full hidden md:block"></div>
+            
+            <!-- Experience 1: Data Scientist -->
+            <div class="relative mb-12 animate-fade-in stagger-1">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <!-- Timeline Dot -->
+                    <div class="hidden md:flex w-16 h-16 bg-slate-900 border-4 border-blue-500 rounded-full items-center justify-center relative z-10">
+                        <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
                     </div>
-
-                    <!-- Web Development Experience -->
-                    <div class="relative">
-                        <div class="flex items-center justify-center">
-                            <div class="bg-indigo-400 w-4 h-4 rounded-full absolute left-1/2 transform -translate-x-1/2 neon-glow"></div>
+                    
+                    <!-- Experience Card -->
+                    <div class="experience-card rounded-2xl p-8 flex-1 relative overflow-hidden">
+                        <!-- Background Pattern -->
+                        <div class="absolute top-0 right-0 w-32 h-32 opacity-5">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <circle cx="50" cy="50" r="10" fill="currentColor"/>
+                            </svg>
                         </div>
-                        <div class="grid lg:grid-cols-2 gap-8 items-center">
-                            <div class="lg:pl-8 lg:order-2">
-                                <div class="bg-gray-800 border border-indigo-500/30 p-8 rounded-xl shadow-lg hover-lift neon-glow">
-                                    <h4 class="text-2xl font-bold text-white mb-2">Web Developer (Intern)</h4>
-                                    <h5 class="text-lg text-indigo-400 mb-4">Kreartors Pvt Ltd.</h5>
-                                    <p class="text-gray-400 mb-4">Jul 2020 – Jul 2021 | Mumbai, India</p>
-                                    <ul class="text-gray-300 space-y-2">
-                                        
-                                        <li>• Designed responsive websites aligned with business goals and UX by collaborating with developers and clients.</li>
-                                        <li>• Managed web hosting, domain control, and technical setup to ensure site performance and uptime.</li>
-                                        <li>• Led client presentations and demos, integrating feedback to improve future development iterations.</li>
-                                        <li>• Achieved ~100% on-time project delivery by setting clear milestones and tracking progress.</li>
-                                    </ul>
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                            <div class="company-logo">TCS</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-white mb-2">Data Scientist & Tableau Developer</h3>
+                                <p class="text-blue-400 font-semibold mb-2">Tata Consultancy Services Limited</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="duration-badge px-3 py-1 rounded-full text-sm font-medium">Jul 2022 – Jul 2024</span>
+                                    <span class="duration-badge px-3 py-1 rounded-full text-sm font-medium">📍 Mumbai, India</span>
                                 </div>
                             </div>
-                            <div class="lg:pr-8 lg:order-1">
-                                <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 border border-purple-500/30 p-6 rounded-xl text-white neon-glow">
-                                    <h5 class="text-lg font-bold mb-4 text-purple-400">Key Skills Developed</h5>
-                                    <div class="grid grid-cols-2 gap-3">
-                                        <span class="bg-indigo-500/20 border border-indigo-500/30 px-3 py-1 rounded text-sm text-indigo-300">HTML</span>
-                                        <span class="bg-purple-500/20 border border-purple-500/30 px-3 py-1 rounded text-sm text-purple-300">CSS</span>
-                                        <span class="bg-pink-500/20 border border-pink-500/30 px-3 py-1 rounded text-sm text-pink-300">Javascript</span>
-                                        <span class="bg-blue-500/20 border border-blue-500/30 px-3 py-1 rounded text-sm text-blue-300">SQL</span>
-                                        <span class="bg-green-500/20 border border-green-500/30 px-3 py-1 rounded text-sm text-green-300">PHP</span>
-                                        <span class="bg-red-500/20 border border-red-500/30 px-3 py-1 rounded text-sm text-red-300">Django</span>
-                                        <span class="bg-yellow-500/20 border border-yellow-500/30 px-3 py-1 rounded text-sm text-yellow-300">Web Design</span>
-                                        <span class="bg-indigo-500/20 border border-indigo-500/30 px-3 py-1 rounded text-sm text-indigo-300">Client Management</span>
-                                        <span class="bg-purple-500/20 border border-purple-500/30 px-3 py-1 rounded text-sm text-purple-300">Project Management</span>
-                                        <span class="bg-pink-500/20 border border-pink-500/30 px-3 py-1 rounded text-sm text-pink-300">UX Design</span>
-                                        <span class="bg-blue-500/20 border border-blue-500/30 px-3 py-1 rounded text-sm text-blue-300">Web Hosting</span>
-                                        <span class="bg-green-500/20 border border-green-500/30 px-3 py-1 rounded text-sm text-green-300">Presentations</span>
-                                        
-                                    </div>
-                                </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div class="space-y-4 mb-6">
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet mt-1"></div>
+                                <p class="text-slate-300 leading-relaxed">Enhanced NLP capabilities using SpaCy, improving text analysis accuracy for unstructured datasets.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet mt-1"></div>
+                                <p class="text-slate-300 leading-relaxed">Developed and deployed ML & Generative AI models on AWS (SageMaker, EC2, EventBridge), including a prototype that <span class="text-green-400 font-semibold">reduced risk identification time by 60%</span>.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet mt-1"></div>
+                                <p class="text-slate-300 leading-relaxed">Designed optimized SQL queries and streamlined ETL pipelines in Snowflake with Python, accelerating data transformation and enabling near real-time reporting.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet mt-1"></div>
+                                <p class="text-slate-300 leading-relaxed">Led BI migration POC (QlikView → Power BI) and built 20+ interactive Tableau dashboards, <span class="text-green-400 font-semibold">improving reporting speed, usability, and stakeholder visibility by 30%+</span>.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet mt-1"></div>
+                                <p class="text-slate-300 leading-relaxed">Transformed and automated large-scale data workflows, <span class="text-green-400 font-semibold">reducing insight access time by 50%</span>.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet mt-1"></div>
+                                <p class="text-slate-300 leading-relaxed">Implemented automated reporting & KPI frameworks, <span class="text-green-400 font-semibold">cutting manual effort by 40%</span> and standardizing BI delivery for scalability.</p>
+                            </div>
+                        </div>
+
+                        <!-- Technologies -->
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wider">Key Technologies</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">Python</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">SQL</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">NLP</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">ML</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">Tableau</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">Power BI</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">Snowflake</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">ETL</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">AWS</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">MLOps</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">GenAI</span>
+                                <span class="tech-tag px-3 py-1 rounded-lg text-sm font-medium text-white">Git</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Experience 2: Web Developer -->
+            <div class="relative animate-fade-in stagger-2">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <!-- Timeline Dot -->
+                    <div class="hidden md:flex w-16 h-16 bg-slate-900 border-4 border-purple-500 rounded-full items-center justify-center relative z-10">
+                        <div class="w-6 h-6 bg-purple-500 rounded-full"></div>
+                    </div>
+                    
+                    <!-- Experience Card -->
+                    <div class="experience-card rounded-2xl p-8 flex-1 relative overflow-hidden">
+                        <!-- Background Pattern -->
+                        <div class="absolute top-0 right-0 w-32 h-32 opacity-5">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <rect x="20" y="20" width="60" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <rect x="30" y="30" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <rect x="40" y="40" width="20" height="20" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                            <div class="company-logo bg-gradient-to-br from-purple-500 to-pink-500">K</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-white mb-2">Web Developer</h3>
+                                <p class="text-purple-400 font-semibold mb-2">Kreartors Pvt Ltd.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="duration-badge px-3 py-1 rounded-full text-sm font-medium border-purple-500 bg-purple-500/10 text-purple-400">Jul 2020 – Jul 2021</span>
+                                    <span class="duration-badge px-3 py-1 rounded-full text-sm font-medium border-purple-500 bg-purple-500/10 text-purple-400">📍 Mumbai, India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div class="space-y-4 mb-6">
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                                <p class="text-slate-300 leading-relaxed">Designed responsive websites aligned with business goals and UX by collaborating with developers and clients.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                                <p class="text-slate-300 leading-relaxed">Managed web hosting, domain control, and technical setup to ensure site performance and uptime.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                                <p class="text-slate-300 leading-relaxed">Led client presentations and demos, integrating feedback to improve future development iterations.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="achievement-bullet bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                                <p class="text-slate-300 leading-relaxed">Achieved <span class="text-green-400 font-semibold">~100% on-time project delivery</span> by setting clear milestones and tracking progress.</p>
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wider">Key Skills Developed</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">HTML</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">CSS</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">JavaScript</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">SQL</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">PHP</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">Django</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">Web Design</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">UX Design</span>
+                                <span class="tech-tag bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-lg text-sm font-medium text-white">Project Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <br>
             <!-- Education -->
             <div>
                 <div class="text-center mb-12">
@@ -463,7 +663,7 @@
                                 </div>
                             </div>
                             <div class="lg:pl-8">
-                                <div class="bg-gradient-to-br from-green-900/50 to-teal-900/50 border border-teal-500/30 p-6 rounded-xl text-white neon-glow">
+                                <div class="bg-gradient-to-br from-green-900/50 to-teal-900/50 border border-teal-500/30 p-6 rounded-xl text-white ">
                                     <h5 class="text-lg font-bold mb-4 text-teal-400">Key Modules</h5>
                                     <ul class="space-y-2 text-gray-300">
                                         <li>• Business Decision Support Systems</li>
@@ -499,7 +699,7 @@
                                 </div>
                             </div>
                             <div class="lg:pr-8 lg:order-1">
-                                <div class="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 border border-indigo-500/30 p-6 rounded-xl text-white neon-glow">
+                                <div class="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 border border-indigo-500/30 p-6 rounded-xl text-white ">
                                     <h5 class="text-lg font-bold mb-4 text-indigo-400">Core Subjects</h5>
                                     <ul class="space-y-2 text-gray-300">
                                         <li>• Software Engineering</li>
@@ -516,350 +716,111 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-800 relative overflow-hidden">
-        <!-- Animated Background Grid -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="grid grid-cols-20 grid-rows-20 h-full w-full">
-                <div class="border border-green-500/20 animate-pulse"></div>
-                <div class="border border-blue-500/20 animate-pulse" style="animation-delay: 0.5s;"></div>
-                <div class="border border-purple-500/20 animate-pulse" style="animation-delay: 1s;"></div>
-            </div>
+   
+<section class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" id="skills" >
+    <div class="max-w-5xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
+            <p class="text-gray-400 text-lg">Technical proficiency overview</p>
         </div>
         
-         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 glitch" data-text="Interactive Skills Lab">Interactive Skills Lab</h2>
-                <p class="text-xl text-gray-300">Click, explore, and see my expertise in action</p>
-                <div class="code-font text-green-400 text-sm mt-4 typewriter">>>> skills.demonstrate(interactive=True)</div>
-            </div> -->
-            
-            <!-- Interactive Skill Tabs -->
-            <!-- <div class="mb-12">
-                <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <button onclick="showSkillDemo('python')" class="skill-tab active px-6 py-3 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 font-semibold hover:bg-green-500/30 transition-all neon-glow">
-                        🐍 Python & ML
-                    </button>
-                    <button onclick="showSkillDemo('sql')" class="skill-tab px-6 py-3 bg-blue-500/20 border border-blue-500/30 rounded-lg text-blue-300 font-semibold hover:bg-blue-500/30 transition-all">
-                        🗄️ SQL & Data
-                    </button>
-                    <button onclick="showSkillDemo('viz')" class="skill-tab px-6 py-3 bg-purple-500/20 border border-purple-500/30 rounded-lg text-purple-300 font-semibold hover:bg-purple-500/30 transition-all">
-                        📊 Visualization
-                    </button>
-                    <button onclick="showSkillDemo('cloud')" class="skill-tab px-6 py-3 bg-orange-500/20 border border-orange-500/30 rounded-lg text-orange-300 font-semibold hover:bg-orange-500/30 transition-all">
-                        ☁️ Cloud & AWS
-                    </button>
-                    <button onclick="showSkillDemo('ai')" class="skill-tab px-6 py-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 font-semibold hover:bg-red-500/30 transition-all">
-                        🤖 AI & GenAI
-                    </button>
-                </div> -->
+        <!-- Skills Container -->
+        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
+            <div class="grid gap-4">
+                <!-- Skill Items -->
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="95">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">🐍 Python</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-[2.5s] ease-out shadow-lg relative overflow-hidden transform scale-y-100" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                        </div>
+                    </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">95%</span>
+                </div>
                 
-                <!-- Skill Demo Areas -->
-                <!-- <div class="skill-demo-container">
-                    <!-- Python Demo -->
-                   <!--  <div id="python-demo" class="skill-demo active">
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <div class="bg-gray-900 border border-green-500/30 rounded-xl p-6 neon-glow">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h3 class="text-xl font-bold text-green-400">Live Python Terminal</h3>
-                                    <div class="flex gap-2">
-                                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                                    </div>
-                                </div>
-                                <div class="code-font text-sm">
-                                    <div class="text-green-400 mb-2">$ python3 -c "import pandas as pd, numpy as np"</div>
-                                    <div class="text-gray-300 mb-2">>>> df = pd.read_csv('water_usage.csv')</div>
-                                    <div class="text-gray-300 mb-2">>>> model = RandomForestRegressor()</div>
-                                    <div class="text-gray-300 mb-2">>>> accuracy = model.fit(X_train, y_train).score(X_test, y_test)</div>
-                                    <div class="text-blue-400 mb-4">>>> print(f"Model Accuracy: {accuracy:.2%}")</div>
-                                    <div class="text-yellow-400 typing-animation">Model Accuracy: 94.7%</div>
-                                    <div class="text-green-400 mt-2 cursor-blink">>>> _</div>
-                                </div>
-                                <button onclick="runPythonDemo()" class="mt-4 px-4 py-2 bg-green-500/20 border border-green-500/30 rounded text-green-300 hover:bg-green-500/30 transition-all">
-                                    ▶ Run Code
-                                </button>
-                            </div>
-                            <div class="bg-gray-900 border border-green-500/30 rounded-xl p-6 neon-glow">
-                                <h4 class="text-lg font-bold text-green-400 mb-4">ML Model Performance</h4>
-                                <canvas id="pythonChart" width="300" height="200"></canvas>
-                                <div class="mt-4 grid grid-cols-2 gap-4 text-center">
-                                    <div class="bg-green-500/10 border border-green-500/30 rounded p-3">
-                                        <div class="text-2xl font-bold text-green-400" id="accuracy-score">94.7%</div>
-                                        <div class="text-sm text-gray-300">Accuracy</div>
-                                    </div>
-                                    <div class="bg-blue-500/10 border border-blue-500/30 rounded p-3">
-                                        <div class="text-2xl font-bold text-blue-400" id="f1-score">0.92</div>
-                                        <div class="text-sm text-gray-300">F1 Score</div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="90">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">🗄️ SQL</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         </div>
                     </div>
-                    
-                    <!-- SQL Demo -->
-                   <!--  <div id="sql-demo" class="skill-demo">
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <div class="bg-gray-900 border border-blue-500/30 rounded-xl p-6 neon-glow">
-                                <h3 class="text-xl font-bold text-blue-400 mb-4">Interactive SQL Query</h3>
-                                <div class="code-font text-sm bg-gray-800 p-4 rounded border border-blue-500/20">
-                                    <div class="text-blue-400">SELECT</div>
-                                    <div class="ml-4 text-gray-300">customer_segment,</div>
-                                    <div class="ml-4 text-gray-300">AVG(usage_amount) as avg_usage,</div>
-                                    <div class="ml-4 text-gray-300">COUNT(*) as total_customers</div>
-                                    <div class="text-blue-400">FROM water_usage_data</div>
-                                    <div class="text-blue-400">WHERE usage_date >= '2024-01-01'</div>
-                                    <div class="text-blue-400">GROUP BY customer_segment</div>
-                                    <div class="text-blue-400">ORDER BY avg_usage DESC;</div>
-                                </div>
-                                <button onclick="runSQLDemo()" class="mt-4 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded text-blue-300 hover:bg-blue-500/30 transition-all">
-                                    ⚡ Execute Query
-                                </button>
-                            </div>
-                            <div class="bg-gray-900 border border-blue-500/30 rounded-xl p-6 neon-glow">
-                                <h4 class="text-lg font-bold text-blue-400 mb-4">Query Results</h4>
-                                <div class="overflow-x-auto">
-                                    <table class="w-full text-sm" id="sql-results">
-                                        <thead>
-                                            <tr class="border-b border-blue-500/30">
-                                                <th class="text-left py-2 text-blue-400">Segment</th>
-                                                <th class="text-left py-2 text-blue-400">Avg Usage</th>
-                                                <th class="text-left py-2 text-blue-400">Customers</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-gray-300">
-                                            <tr class="border-b border-gray-700">
-                                                <td class="py-2">Commercial</td>
-                                                <td class="py-2">2,847 L</td>
-                                                <td class="py-2">156</td>
-                                            </tr>
-                                            <tr class="border-b border-gray-700">
-                                                <td class="py-2">Residential</td>
-                                                <td class="py-2">1,234 L</td>
-                                                <td class="py-2">892</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-2">Industrial</td>
-                                                <td class="py-2">5,621 L</td>
-                                                <td class="py-2">43</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="mt-4 text-xs text-gray-400 code-font">
-                                    Query executed in 0.023s | 3 rows returned
-                                </div>
-                            </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">90%</span>
+                </div>
+                
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="90">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">📊 Tableau</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-orange-500 to-red-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         </div>
                     </div>
-                    
-                    <!-- Visualization Demo -->
-                  <!--   <div id="viz-demo" class="skill-demo">
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <div class="bg-gray-900 border border-purple-500/30 rounded-xl p-6 neon-glow">
-                                <h3 class="text-xl font-bold text-purple-400 mb-4">Interactive Dashboard</h3>
-                                <canvas id="vizChart" width="400" height="250"></canvas>
-                                <div class="mt-4 flex gap-2">
-                                    <button onclick="updateVizChart('bar')" class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-purple-300 text-sm hover:bg-purple-500/30">Bar</button>
-                                    <button onclick="updateVizChart('line')" class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-purple-300 text-sm hover:bg-purple-500/30">Line</button>
-                                    <button onclick="updateVizChart('doughnut')" class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-purple-300 text-sm hover:bg-purple-500/30">Pie</button>
-                                </div>
-                            </div>
-                            <div class="bg-gray-900 border border-purple-500/30 rounded-xl p-6 neon-glow">
-                                <h4 class="text-lg font-bold text-purple-400 mb-4">Tableau-Style Insights</h4>
-                                <div class="space-y-4">
-                                    <div class="bg-purple-500/10 border border-purple-500/30 rounded p-4">
-                                        <div class="text-lg font-bold text-purple-400">Key Findings</div>
-                                        <ul class="text-sm text-gray-300 mt-2 space-y-1">
-                                            <li>• 23% increase in water efficiency</li>
-                                            <li>• Peak usage: 2-4 PM daily</li>
-                                            <li>• Commercial sector: highest consumption</li>
-                                        </ul>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div class="text-center p-3 bg-green-500/10 border border-green-500/30 rounded">
-                                            <div class="text-xl font-bold text-green-400">$2.3M</div>
-                                            <div class="text-xs text-gray-300">Cost Savings</div>
-                                        </div>
-                                        <div class="text-center p-3 bg-blue-500/10 border border-blue-500/30 rounded">
-                                            <div class="text-xl font-bold text-blue-400">15%</div>
-                                            <div class="text-xs text-gray-300">Efficiency Gain</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">90%</span>
+                </div>
+                
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="80">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">☁️ AWS</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         </div>
                     </div>
-                    
-                    <!-- Cloud Demo -->
-                   <!--  <div id="cloud-demo" class="skill-demo">
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <div class="bg-gray-900 border border-orange-500/30 rounded-xl p-6 neon-glow">
-                                <h3 class="text-xl font-bold text-orange-400 mb-4">AWS Architecture</h3>
-                                <div class="space-y-3">
-                                    <div class="flex items-center justify-between p-3 bg-orange-500/10 border border-orange-500/30 rounded">
-                                        <span class="text-orange-300">📊 S3 Data Lake</span>
-                                        <span class="text-green-400 text-sm">✓ Active</span>
-                                    </div>
-                                    <div class="flex items-center justify-between p-3 bg-orange-500/10 border border-orange-500/30 rounded">
-                                        <span class="text-orange-300">⚡ Lambda Functions</span>
-                                        <span class="text-green-400 text-sm">✓ Running</span>
-                                    </div>
-                                    <div class="flex items-center justify-between p-3 bg-orange-500/10 border border-orange-500/30 rounded">
-                                        <span class="text-orange-300">🤖 SageMaker ML</span>
-                                        <span class="text-green-400 text-sm">✓ Deployed</span>
-                                    </div>
-                                    <div class="flex items-center justify-between p-3 bg-orange-500/10 border border-orange-500/30 rounded">
-                                        <span class="text-orange-300">📈 CloudWatch</span>
-                                        <span class="text-green-400 text-sm">✓ Monitoring</span>
-                                    </div>
-                                </div>
-                                <button onclick="deployCloudDemo()" class="mt-4 px-4 py-2 bg-orange-500/20 border border-orange-500/30 rounded text-orange-300 hover:bg-orange-500/30 transition-all">
-                                    🚀 Deploy Pipeline
-                                </button>
-                            </div>
-                            <div class="bg-gray-900 border border-orange-500/30 rounded-xl p-6 neon-glow">
-                                <h4 class="text-lg font-bold text-orange-400 mb-4">Real-time Metrics</h4>
-                                <div class="grid grid-cols-2 gap-4 mb-4">
-                                    <div class="text-center p-3 bg-green-500/10 border border-green-500/30 rounded">
-                                        <div class="text-xl font-bold text-green-400" id="cloud-uptime">99.9%</div>
-                                        <div class="text-xs text-gray-300">Uptime</div>
-                                    </div>
-                                    <div class="text-center p-3 bg-blue-500/10 border border-blue-500/30 rounded">
-                                        <div class="text-xl font-bold text-blue-400" id="cloud-requests">1.2M</div>
-                                        <div class="text-xs text-gray-300">Requests/day</div>
-                                    </div>
-                                </div>
-                                <div class="code-font text-xs text-gray-400 bg-gray-800 p-3 rounded">
-                                    <div class="text-green-400">INFO: Model inference completed</div>
-                                    <div class="text-blue-400">INFO: Data pipeline processing...</div>
-                                    <div class="text-yellow-400">WARN: High memory usage detected</div>
-                                    <div class="text-green-400">INFO: Auto-scaling triggered</div>
-                                </div>
-                            </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">80%</span>
+                </div>
+                
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="82">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">❄️ Snowflake</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         </div>
                     </div>
-                    
-                    <!-- AI Demo -->
-                 <!--    <div id="ai-demo" class="skill-demo">
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <div class="bg-gray-900 border border-red-500/30 rounded-xl p-6 neon-glow">
-                                <h3 class="text-xl font-bold text-red-400 mb-4">GenAI Chat Interface</h3>
-                                <div class="bg-gray-800 border border-red-500/20 rounded p-4 h-48 overflow-y-auto mb-4" id="ai-chat">
-                                    <div class="mb-3">
-                                        <div class="text-blue-400 text-sm">User:</div>
-                                        <div class="text-gray-300 text-sm">Analyze water usage patterns</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="text-red-400 text-sm">AI Assistant:</div>
-                                        <div class="text-gray-300 text-sm">I've analyzed the data and found 3 key patterns: peak usage occurs during 2-4 PM, commercial buildings consume 40% more than predicted, and there's a 15% seasonal variation. Would you like me to generate optimization recommendations?</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-2">
-                                    <input type="text" placeholder="Ask about data insights..." class="flex-1 px-3 py-2 bg-gray-800 border border-red-500/30 rounded text-white text-sm" id="ai-input">
-                                    <button onclick="sendAIMessage()" class="px-4 py-2 bg-red-500/20 border border-red-500/30 rounded text-red-300 hover:bg-red-500/30 transition-all">Send</button>
-                                </div>
-                            </div>
-                            <div class="bg-gray-900 border border-red-500/30 rounded-xl p-6 neon-glow">
-                                <h4 class="text-lg font-bold text-red-400 mb-4">NLP Processing</h4>
-                                <div class="space-y-3">
-                                    <div class="bg-red-500/10 border border-red-500/30 rounded p-3">
-                                        <div class="text-sm text-red-400 mb-1">Sentiment Analysis</div>
-                                        <div class="flex items-center gap-2">
-                                            <div class="flex-1 bg-gray-700 rounded-full h-2">
-                                                <div class="bg-green-400 h-2 rounded-full neon-glow" style="width: 78%"></div>
-                                            </div>
-                                            <span class="text-green-400 text-sm">78% Positive</span>
-                                        </div>
-                                    </div>
-                                    <div class="bg-red-500/10 border border-red-500/30 rounded p-3">
-                                        <div class="text-sm text-red-400 mb-1">Entity Recognition</div>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="px-2 py-1 bg-blue-500/20 border border-blue-500/30 rounded text-xs text-blue-300">LOCATION</span>
-                                            <span class="px-2 py-1 bg-green-500/20 border border-green-500/30 rounded text-xs text-green-300">METRIC</span>
-                                            <span class="px-2 py-1 bg-purple-500/20 border border-purple-500/30 rounded text-xs text-purple-300">TIME</span>
-                                        </div>
-                                    </div>
-                                    <div class="bg-red-500/10 border border-red-500/30 rounded p-3">
-                                        <div class="text-sm text-red-400 mb-1">Model Confidence</div>
-                                        <div class="text-2xl font-bold text-red-400">94.2%</div>
-                                    </div>
-                                </div>
-                            </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">82%</span>
+                </div>
+                
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="85">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">📈 Power BI</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-yellow-500 to-orange-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         </div>
                     </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">85%</span>
+                </div>
+                
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="85">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">🧠 Machine Learning</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                        </div>
+                    </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">85%</span>
+                </div>
+                
+                <div class="skill-line flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-gray-700/30 hover:translate-x-2" data-width="80">
+                    <span class="skill-name text-cyan-400 font-semibold min-w-[200px] text-lg">🔄 GenAI</span>
+                    <div class="skill-bar flex-1 h-3 bg-gray-700 rounded-full overflow-hidden mx-6 border border-gray-600">
+                        <div class="skill-fill h-full bg-gradient-to-r from-pink-500 to-rose-400 rounded-full transition-all duration-[2s] ease-out shadow-lg relative overflow-hidden" style="width: 0%">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                        </div>
+                    </div>
+                    <span class="skill-percent text-green-400 font-bold text-lg min-w-[50px] text-right">80%</span>
                 </div>
             </div>
-             -->
-            <!-- Interactive Skill Matrix -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-bold text-white mb-8 text-center">Skill Proficiency Matrix</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <div class="skill-hexagon bg-green-500/20 border border-green-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer neon-glow" onclick="animateSkill(this, 95)">
-                        <div class="text-2xl mb-2">🐍</div>
-                        <div class="text-sm text-green-400 font-semibold">Python</div>
-                        <div class="text-xs text-gray-300 skill-percentage">95%</div>
-                    </div>
-                    <div class="skill-hexagon bg-blue-500/20 border border-blue-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 90)">
-                        <div class="text-2xl mb-2">🗄️</div>
-                        <div class="text-sm text-blue-400 font-semibold">SQL</div>
-                        <div class="text-xs text-gray-300 skill-percentage">90%</div>
-                    </div>
-                    <div class="skill-hexagon bg-red-500/20 border border-red-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">❄️</div>
-                        <div class="text-sm text-red-400 font-semibold">Snowflake</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-purple-500/20 border border-purple-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 88)">
-                        <div class="text-2xl mb-2">📊</div>
-                        <div class="text-sm text-purple-400 font-semibold">Tableau</div>
-                        <div class="text-xs text-gray-300 skill-percentage">88%</div>
-                    </div>
-                    <div class="skill-hexagon bg-orange-500/20 border border-orange-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">📈</div>
-                        <div class="text-sm text-orange-400 font-semibol">Power BI</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-indigo-500/20 border border-indigo-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">⚡</div>
-                        <div class="text-sm text-indigo-400 font-semibold">Power Automate</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-indigo-500/20 border border-indigo-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 85)">
-                        <div class="text-2xl mb-2">☁️</div>
-                        <div class="text-sm text-indigo-400 font-semibold">AWS</div>
-                        <div class="text-xs text-gray-300 skill-percentage">85%</div>
-                    </div>
-                    <div class="skill-hexagon bg-green-500/20 border border-green-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">🧠</div>
-                        <div class="text-sm text-green-400 font-semibold">Machine Learning</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-blue-500/20 border border-blue-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">📖</div>
-                        <div class="text-sm text-blue-400 font-semibold">NLP</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-red-500/20 border border-red-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">🔄</div>
-                        <div class="text-sm text-red-400 font-semibold">GenAI</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-purple-500/20 border border-purple-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 82)">
-                        <div class="text-2xl mb-2">🤖</div>
-                        <div class="text-sm text-purple-400 font-semibold">ETL</div>
-                        <div class="text-xs text-gray-300 skill-percentage">82%</div>
-                    </div>
-                    <div class="skill-hexagon bg-orange-500/20 border border-orange-500/30 p-4 rounded-lg text-center hover:scale-105 transition-all cursor-pointer" onclick="animateSkill(this, 78)">
-                        <div class="text-2xl mb-2">🎨</div>
-                        <div class="text-sm text-orange-400 font-semibold">UI/UX</div>
-                        <div class="text-xs text-gray-300 skill-percentage">78%</div>
-                    </div>
-                </div>
-            </div>
+            
+            <!-- Success Message -->
+            <!-- <div class="success-indicator mt-6 text-center opacity-0 transition-all duration-500 transform translate-y-4">
+                <span class="text-green-400 font-semibold text-lg">✓ Skills loaded successfully</span>
+            </div> -->
         </div>
-    </section>
+    </div>
+
+
+   
+</section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-gray-900">
@@ -1456,5 +1417,53 @@
         window.scrollTo(0, 0);
     };
 </script>
+
+ <script>
+        // Initialize animation when section comes into view
+        const skillsSection = document.querySelector('section');
+        const skillLines = document.querySelectorAll('.skill-line');
+        const successIndicator = document.querySelector('.success-indicator');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(skillsSection);
+        
+        function animateSkills() {
+            skillLines.forEach((line, index) => {
+                setTimeout(() => {
+                    // Slide in the line
+                    line.classList.add('animate');
+                    
+                    // Animate the progress bar with smooth fill
+                    setTimeout(() => {
+                        const skillFill = line.querySelector('.skill-fill');
+                        const targetWidth = line.getAttribute('data-width');
+                        
+                        // Start from 0 and animate to target width
+                        skillFill.style.width = '0%';
+                        setTimeout(() => {
+                            skillFill.style.width = targetWidth + '%';
+                        }, 50);
+                    }, 200);
+                    
+                }, index * 100); // Stagger by 100ms
+            });
+            
+            // Show success message
+            setTimeout(() => {
+                successIndicator.classList.add('show');
+            }, skillLines.length * 100 + 1500);
+        }
+    </script>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973dab0f50a1be50',t:'MTc1NTk4NDE3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
 </body>
 </html>
