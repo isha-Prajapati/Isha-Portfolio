@@ -48,7 +48,7 @@
         .morph-shape { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morph 8s ease-in-out infinite; }
         
         /* Cyber Grid */
-        .cyber-grid { background-image: linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px); background-size: 50px 50px; animation: gridMove 20s linear infinite; }
+        .cyber-grid { background-image: linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px); background-size: 50px 50px; }
         
         /* Neon Pulse */
         .neon-pulse { animation: neonPulse 2s ease-in-out infinite alternate; }
@@ -95,6 +95,17 @@
             from { width: 0; } 
             to { width: 100%; } 
         }
+
+        html {
+        scroll-padding-top: 5rem; /* equal to navbar height */
+        }
+
+        @media(min-width: 768px) {
+        html {
+            scroll-padding-top: 6rem; /* adjust for larger screens */
+        }
+        }
+
     </style>
 </head>
 <body class="bg-gray-900">
@@ -121,7 +132,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="gradient-bg min-h-screen flex items-center relative overflow-hidden cyber-grid">
+    <section id="home" class="gradient-bg min-h-screen flex items-center relative overflow-hidden cyber-grid pt-20 md:pt-24">
         <!-- Particle System -->
         <div class="particles">
             <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
